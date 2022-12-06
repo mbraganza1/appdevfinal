@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Moment #<%= @the_moment.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/moments">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_moment/<%= @the_moment.id %>">
+          Delete moment
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_moment.title %>
+      </dd>
+
+      <dt>
+        Time
+      </dt>
+      <dd>
+        <%= @the_moment.time %>
+      </dd>
+
+      <dt>
+        Game
+      </dt>
+      <dd>
+        <%= @the_moment.game_id %>
+      </dd>
+
+      <dt>
+        Caption
+      </dt>
+      <dd>
+        <%= @the_moment.caption %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_moment.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_moment.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_moment.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit moment
+    </h2>
+
+    <form action="/modify_moment/<%= @the_moment.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_moment.title %>">
+      </div>
+
+      <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="text" id="time_box" name="query_time" value="<%= @the_moment.time %>">
+      </div>
+
+      <div>
+        <label for="game_id_box">
+          Game
+        </label>
+
+        <input type="text" id="game_id_box" name="query_game_id" value="<%= @the_moment.game_id %>">
+      </div>
+
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <textarea id="caption_box" name="query_caption"><%= @the_moment.caption %></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_moment.image %>">
+      </div>
+
+      <button>
+        Update moment
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

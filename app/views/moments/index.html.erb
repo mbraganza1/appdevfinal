@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all moments
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new moment
+    </h2>
+
+    <form action="/insert_moment" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="text" id="time_box" name="query_time">
+      </div>
+
+      <div>
+        <label for="game_id_box">
+          Game
+        </label>
+
+        <input type="text" id="game_id_box" name="query_game_id">
+      </div>
+
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <textarea id="caption_box" name="query_caption" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <button>
+        Create moment
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Time
+        </th>
+
+        <th>
+          Game
+        </th>
+
+        <th>
+          Caption
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_moments.each do |a_moment| %>
+      <tr>
+        <td>
+          <%= a_moment.id %>
+        </td>
+
+        <td>
+          <%= a_moment.title %>
+        </td>
+
+        <td>
+          <%= a_moment.time %>
+        </td>
+
+        <td>
+          <%= a_moment.game_id %>
+        </td>
+
+        <td>
+          <%= a_moment.caption %>
+        </td>
+
+        <td>
+          <%= a_moment.image %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_moment.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_moment.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/moments/<%= a_moment.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
