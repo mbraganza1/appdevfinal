@@ -1,12 +1,14 @@
 # == Schema Information
 #
-# Table name: favourites
+# Table name: favorites
 #
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  movie_id   :integer
+#  moment_id  :integer
 #  user_id    :integer
 #
-class Favourite < ApplicationRecord
+class Favorite < ApplicationRecord
+  belongs_to :user
+  belongs_to :moment
 end

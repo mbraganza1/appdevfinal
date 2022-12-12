@@ -11,4 +11,6 @@
 #  updated_at :datetime         not null
 #
 class Player < ApplicationRecord
+  has_many :roles
+  has_many :moments, :through => :roles, :source => :game
 end

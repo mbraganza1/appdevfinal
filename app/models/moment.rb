@@ -12,4 +12,9 @@
 #  game_id    :integer
 #
 class Moment < ApplicationRecord
+  belongs_to :game
+  has_many :roles
+
+  has_many :people, :through => :roles, :source => :player
+
 end

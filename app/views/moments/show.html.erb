@@ -4,6 +4,21 @@
       Moment #<%= @the_moment.id %> details
     </h1>
 
+    <% current_user_favorites = Favorite.where({ :moment_id => @the_moment.id, :user_id => session.fetch(:user_id) }) %>
+    <% the_favorite = current_user_favorites.at(0) %>
+
+    <% if the_favorite == nil %>
+      <form action="/insert_favorite" method="post">
+        <input type="hidden" name="query_moment_id" value="<%= @the_moment.id %>">
+
+        <button>Add To Favourites!</button>
+      </form>
+    <% else %>
+      <a href="/delete_favorite/<%= the_favorite.id %>">
+          Un-Favorite 
+        </a>
+    <% end %>
+
     <div>
       <div>
         <a href="/moments">

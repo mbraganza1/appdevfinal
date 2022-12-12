@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all favourites
+      List of all favorites
     </h1>
   </div>
 </div>
@@ -11,10 +11,10 @@
 <div>
   <div>
     <h2>
-      Add a new favourite
+      Add a new favorite
     </h2>
 
-    <form action="/insert_favourite" method="post">
+    <form action="/insert_favorite" method="post">
       <div>
         <label for="user_id_box">
           User
@@ -24,15 +24,15 @@
       </div>
 
       <div>
-        <label for="movie_id_box">
-          Movie
+        <label for="moment_id_box">
+          Moment
         </label>
 
-        <input type="text" id="movie_id_box" name="query_movie_id">
+        <input type="text" id="moment_id_box" name="query_moment_id">
       </div>
 
       <button>
-        Create favourite
+        Create favorite
       </button>
     </form>
   </div>
@@ -52,7 +52,7 @@
         </th>
 
         <th>
-          Movie
+          Moment
         </th>
 
         <th>
@@ -67,29 +67,29 @@
         </th>
       </tr>
 
-      <% @list_of_favourites.each do |a_favourite| %>
+      <% @list_of_favorites.each do |a_favorite| %>
       <tr>
         <td>
-          <%= a_favourite.id %>
+          <%= a_favorite.id %>
         </td>
 
         <td>
-          <%= a_favourite.user_id %>
+          <%= a_favorite.user_id %>
         </td>
 
         <td>
-          <%= a_favourite.movie_id %>
+          <%= a_favorite.moment_id %>
         </td>
 
         <td>
-          <%= time_ago_in_words(a_favourite.created_at) %> ago
+          <%= time_ago_in_words(a_favorite.created_at) %> ago
         </td>
         <td>
-          <%= time_ago_in_words(a_favourite.updated_at) %> ago
+          <%= time_ago_in_words(a_favorite.updated_at) %> ago
         </td>
 
         <td>
-          <a href="/favourites/<%= a_favourite.id %>">
+          <a href="/favorites/<%= a_favorite.id %>">
             Show details
           </a>
         </td>

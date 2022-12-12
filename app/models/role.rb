@@ -10,4 +10,6 @@
 #  player_id  :integer
 #
 class Role < ApplicationRecord
+  belongs_to :moment
+  belongs_to :player
 end

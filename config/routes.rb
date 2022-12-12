@@ -1,23 +1,20 @@
 Rails.application.routes.draw do
-
-
-
-  # Routes for the Favourite resource:
-
+  # Routes for the Favorite resource:
+  get("/", { :controller => "moments", :action => "home" }) 
   # CREATE
-  post("/insert_favourite", { :controller => "favourites", :action => "create" })
+  post("/insert_favorite", { :controller => "favorites", :action => "create" })
           
   # READ
-  get("/favourites", { :controller => "favourites", :action => "index" })
+  get("/favorites", { :controller => "favorites", :action => "index" })
   
-  get("/favourites/:path_id", { :controller => "favourites", :action => "show" })
+  get("/favorites/:path_id", { :controller => "favorites", :action => "show" })
   
   # UPDATE
   
-  post("/modify_favourite/:path_id", { :controller => "favourites", :action => "update" })
+  post("/modify_favorite/:path_id", { :controller => "favorites", :action => "update" })
   
   # DELETE
-  get("/delete_favourite/:path_id", { :controller => "favourites", :action => "destroy" })
+  get("/delete_favorite/:path_id", { :controller => "favorites", :action => "destroy" })
 
   #------------------------------
 

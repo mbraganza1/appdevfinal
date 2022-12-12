@@ -1,4 +1,8 @@
 class MomentsController < ApplicationController
+  def home
+    render({ :template => "moments/home.html.erb" })
+  end
+
   def index
     matching_moments = Moment.all
 
@@ -45,7 +49,7 @@ class MomentsController < ApplicationController
 
     if the_moment.valid?
       the_moment.save
-      redirect_to("/moments/#{the_moment.id}", { :notice => "Moment updated successfully."} )
+      redirect_to("/moments/#{the_moment.id}", { :notice => "Moment updated successfully." })
     else
       redirect_to("/moments/#{the_moment.id}", { :alert => the_moment.errors.full_messages.to_sentence })
     end
@@ -57,6 +61,6 @@ class MomentsController < ApplicationController
 
     the_moment.destroy
 
-    redirect_to("/moments", { :notice => "Moment deleted successfully."} )
+    redirect_to("/moments", { :notice => "Moment deleted successfully." })
   end
 end
