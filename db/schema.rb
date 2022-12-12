@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_07_023650) do
+ActiveRecord::Schema.define(version: 2022_12_12_171624) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2022_12_07_023650) do
     t.date "dob"
     t.text "bio"
     t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "predictions", force: :cascade do |t|
+    t.string "prediction"
+    t.integer "user_id"
+    t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

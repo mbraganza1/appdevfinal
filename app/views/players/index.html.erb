@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all players
+      Team Of The Tournament
     </h1>
   </div>
 </div>
@@ -11,9 +11,9 @@
 <div>
   <div>
     <h2>
-      Add a new player
+      Add A New Player To Your Ultimate Team!
     </h2>
-
+  
     <form action="/insert_player" method="post">
       <div>
         <label for="name_box">
@@ -33,22 +33,26 @@
 
       <div>
         <label for="bio_box">
-          Bio
+          Position
         </label>
-
-        <textarea id="bio_box" name="query_bio" rows="3"></textarea>
+        <select name="query_bio_id">
+          <option>GK</option>
+          <option>RB</option>
+          <option>LB</option>
+          <option>CB</option>
+          <option>CM</option>
+          <option>CDM</option>
+          <option>CAM</option>
+          <option>RW</option>
+          <option>LW</option>
+          <option>RM</option>
+          <option>LM</option>
+          <option>ST</option>
+          <option>CF</option>
+        </select>
       </div>
-
-      <div>
-        <label for="image_box">
-          Image
-        </label>
-
-        <input type="text" id="image_box" name="query_image">
-      </div>
-
       <button>
-        Create player
+        Add Player
       </button>
     </form>
   </div>
@@ -73,10 +77,6 @@
 
         <th>
           Bio
-        </th>
-
-        <th>
-          Image
         </th>
 
         <th>
@@ -107,10 +107,6 @@
 
         <td>
           <%= a_player.bio %>
-        </td>
-
-        <td>
-          <%= a_player.image %>
         </td>
 
         <td>

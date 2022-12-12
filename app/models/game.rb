@@ -12,5 +12,7 @@
 #
 class Game < ApplicationRecord
   has_many :moments
+  has_many :predictions
+  
   
 end

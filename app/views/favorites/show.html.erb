@@ -25,7 +25,12 @@
       <dd>
         <%= @the_favorite.moment.title %>
       </dd>
-
+      <dt>
+        Link
+      </dt>
+      <dd>
+        <%= @the_favorite.moment.image %>
+      </dd>
       <dt>
         Created at
       </dt>
@@ -42,38 +47,3 @@
     </dl>
   </div>
 </div>
-
-<hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit favorite
-    </h2>
-
-    <form action="/modify_favorite/<%= @the_favorite.id %>"  method="post" >
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_favorite.user_id %>">
-      </div>
-
-      <div>
-        <label for="moment_id_box">
-          Moment
-        </label>
-
-        <input type="text" id="moment_id_box" name="query_moment_id" value="<%= @the_favorite.moment_id %>">
-      </div>
-
-      <button>
-        Update favorite
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>

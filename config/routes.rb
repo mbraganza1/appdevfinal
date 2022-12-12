@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Prediction resource:
+
+  # CREATE
+  post("/insert_prediction", { :controller => "predictions", :action => "create" })
+          
+  # READ
+  get("/predictions", { :controller => "predictions", :action => "index" })
+  
+  get("/predictions/:path_id", { :controller => "predictions", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_prediction/:path_id", { :controller => "predictions", :action => "update" })
+  
+  # DELETE
+  get("/delete_prediction/:path_id", { :controller => "predictions", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Favorite resource:
   get("/", { :controller => "moments", :action => "home" }) 
   # CREATE

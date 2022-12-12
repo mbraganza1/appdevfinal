@@ -21,8 +21,8 @@ class PlayersController < ApplicationController
     the_player = Player.new
     the_player.name = params.fetch("query_name")
     the_player.dob = params.fetch("query_dob")
-    the_player.bio = params.fetch("query_bio")
-    the_player.image = params.fetch("query_image")
+    the_player.bio = params.fetch("query_bio_id")
+   
 
     if the_player.valid?
       the_player.save
