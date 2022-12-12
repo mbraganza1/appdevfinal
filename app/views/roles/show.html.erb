@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Role #<%= @the_role.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/roles">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_role/<%= @the_role.id %>">
+          Delete role
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Impact
+      </dt>
+      <dd>
+        <%= @the_role.impact %>
+      </dd>
+
+      <dt>
+        Player
+      </dt>
+      <dd>
+        <%= @the_role.player_id %>
+      </dd>
+
+      <dt>
+        Moment
+      </dt>
+      <dd>
+        <%= @the_role.moment_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_role.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_role.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit role
+    </h2>
+
+    <form action="/modify_role/<%= @the_role.id %>"  method="post" >
+      <div>
+        <label for="impact_box">
+          Impact
+        </label>
+
+        <input type="text" id="impact_box" name="query_impact" value="<%= @the_role.impact %>">
+      </div>
+
+      <div>
+        <label for="player_id_box">
+          Player
+        </label>
+
+        <input type="text" id="player_id_box" name="query_player_id" value="<%= @the_role.player_id %>">
+      </div>
+
+      <div>
+        <label for="moment_id_box">
+          Moment
+        </label>
+
+        <input type="text" id="moment_id_box" name="query_moment_id" value="<%= @the_role.moment_id %>">
+      </div>
+
+      <button>
+        Update role
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

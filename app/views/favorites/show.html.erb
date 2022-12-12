@@ -1,0 +1,49 @@
+<div>
+  <div>
+    <h1>
+      Favorite #<%= @the_favorite.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/favorites">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_favorite/<%= @the_favorite.id %>">
+          Delete favorite
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Moment
+      </dt>
+      <dd>
+        <%= @the_favorite.moment.title %>
+      </dd>
+      <dt>
+        Link
+      </dt>
+      <dd>
+        <%= @the_favorite.moment.image %>
+      </dd>
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_favorite.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_favorite.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>

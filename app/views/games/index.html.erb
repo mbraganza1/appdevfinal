@@ -1,0 +1,140 @@
+<div>
+  <div>
+    <h1>
+      List of all games
+    </h1>
+  </div>
+</div>
+
+<a href="https://www.fifa.com/fifaplus/en/tournaments/mens/worldcup/qatar2022" target="_blank">
+    Game Info
+</a>
+<hr>
+
+<div>
+<% if @current_user.first_name == "test" %>
+  <div>
+    <h2>
+      Add a new game
+    </h2>
+
+    <form action="/insert_game" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <button>
+        Create game
+      </button>
+    </form>
+  </div>
+<% end %>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_games.each do |a_game| %>
+      <tr>
+        <td>
+          <%= a_game.id %>
+        </td>
+
+        <td>
+          <%= a_game.name %>
+        </td>
+
+        <td>
+          <%= a_game.date %>
+        </td>
+
+        <td>
+          <%= a_game.notes %>
+        </td>
+
+        <td>
+          <%= a_game.image %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_game.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_game.updated_at) %> ago
+        </td>
+        <% if @current_user.first_name == "test" %>  
+          <td>
+            <a href="/games/<%= a_game.id %>">
+              Show details
+            </a>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

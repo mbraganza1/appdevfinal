@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Prediction #<%= @the_prediction.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/predictions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_prediction/<%= @the_prediction.id %>">
+          Delete prediction
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Prediction
+      </dt>
+      <dd>
+        <%= @the_prediction.prediction %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_prediction.user_id %>
+      </dd>
+
+      <dt>
+        Game
+      </dt>
+      <dd>
+        <%= @the_prediction.game_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_prediction.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_prediction.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit prediction
+    </h2>
+
+    <form action="/modify_prediction/<%= @the_prediction.id %>"  method="post" >
+      <div>
+        <label for="prediction_box">
+          Prediction
+        </label>
+
+        <input type="text" id="prediction_box" name="query_prediction" value="<%= @the_prediction.prediction %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          
+        </label>
+
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_prediction.user_id %>">
+      </div>
+
+      <div>
+        <label for="game_id_box">
+          
+        </label>
+
+        <input type="hidden" id="game_id_box" name="query_game_id" value="<%= @the_prediction.game_id %>">
+      </div>
+
+      <button>
+        Update prediction
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
