@@ -10,4 +10,7 @@
 #  user_id    :integer
 #
 class Prediction < ApplicationRecord
+  belongs_to :user, :required => true
+  belongs_to :game, :required => true
+
 end
