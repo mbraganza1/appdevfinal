@@ -16,19 +16,18 @@
 
     <form action="/insert_favorite" method="post">
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
-
-      <div>
         <label for="moment_id_box">
           Moment
         </label>
+        <select name="query_moment_id">
+        <% Moment.all.order(:title).each do |a_moment| %>
+          <option value="<%= a_moment.id %>">
+           <%= a_moment.title %>
+          </option>
+        <% end %>
+        </select>
 
-        <input type="text" id="moment_id_box" name="query_moment_id">
+
       </div>
 
       <button>
@@ -74,12 +73,11 @@
         </td>
 
         <td>
-          <%= a_favorite.user_id %>
+          <%= a_favorite.user.first_name %>
         </td>
 
         <td>
-          <%= a_favorite.moment_id %>
-        </td>
+          <%= a_favorite.moment_id %> 
 
         <td>
           <%= time_ago_in_words(a_favorite.created_at) %> ago
